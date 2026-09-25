@@ -6,10 +6,12 @@ int main() {
  int manche = 1;
  int choixJoueur;
  int choixOrdi;
- printf("=== PIERRE - FEUILLE - CISEAUX (5 Manches) ===\n");
+ printf("=== PIERRE - FEUILLE - CISEAUX (2 points d'écart ou 7 manches max) ===\n");
  printf("Règles : 1 = Pierre, 2 = Feuille, 3 = Ciseaux\n\n");
- while (manche <= 5) {
- printf("--- Manche %d/5 ---\n", manche);
+ // La partie continue tant qu'on n'a pas dépassé 7 manches
+ // ET que l'écart de points est inférieur à 2
+ while (manche <= 7 && abs(scoreJoueur - scoreOrdi) < 2) {
+ printf("--- Manche %d (7 max) ---\n", manche);
  // Saisie du joueur
  printf("Votre choix (1, 2 ou 3) : ");
  scanf("%d", &choixJoueur);
