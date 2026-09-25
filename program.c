@@ -12,9 +12,14 @@ int main() {
  // ET que l'écart de points est inférieur à 2
  while (manche <= 7 && abs(scoreJoueur - scoreOrdi) < 2) {
  printf("--- Manche %d (7 max) ---\n", manche);
- // Saisie du joueur
+ // Saisie du joueur (répétée tant que le choix n'est pas entre 1 et 5)
+ do {
  printf("Votre choix (1, 2, 3, 4 ou 5) : ");
  scanf("%d", &choixJoueur);
+ if (choixJoueur < 1 || choixJoueur > 5) {
+ printf("Choix invalide, recommencez.\n");
+ }
+ } while (choixJoueur < 1 || choixJoueur > 5);
  // Choix aléatoire de l'ordinateur (1 à 5)
  choixOrdi = (rand() % 5) + 1;
  printf("L'ordinateur a choisi : %d\n", choixOrdi);
